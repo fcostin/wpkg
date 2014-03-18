@@ -1,34 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  NOTES
-  1) Relies on TeamViewer Corporate MSI.
-  2) Follow instructions in TeamViewer Corporate MSI wrapper readme to change
-     settings during installation.
--->
-
 <packages>
 
 <package
-  id="teamviewer7-host"
-  name="TeamViewer 7 Host"
-  revision="%version-0"
-  reboot="false"
-  priority="10">
+  id='teamviewer_host'
+  name='TeamViewer Host'
+  revision="%version%-0"
+  reboot="false">
 
-  <variable name="version" value="7.0.14563" />
+  <variable name="mainversion" value='9' />
+  <variable name="version" value='%mainversion%.0.26297' />
+  <variable name='PKG_SOURCE'      value='%SOFTWARE%\TeamViewer\%mainversion%\TeamViewer_Host_Setup.exe' />
+  <variable name='PKG_DESTINATION' value='%PROGRAMFILES%\TeamViewer\Version%mainversion%'      architecture='x86' />
+  <variable name='PKG_DESTINATION' value='%PROGRAMFILES(x86)%\TeamViewer\Version%mainversion%' architecture='x64' />
 
-  <check type="uninstall" condition="versiongreaterorequal" path="TeamViewer 7 Host (MSI Wrapper)" value="%version%" />
+  <check type="uninstall" condition="versiongreaterorequal" path="TeamViewer %mainversion% Host" value="%version%" />
 
-  <install cmd='msiexec %MSI% /i "%SOFTWARE%\TeamViewer\TeamViewer_Host.msi"' />
-  <install cmd='taskkill /f /im TeamViewer.exe'>
-    <exit code='128' />
-  </install>
+  <install cmd='"%PKG_SOURCE%" /S' timeout='120' />>
 
-  <upgrade include="install" />
-  <downgrade include="install" />
+  <upgrade include='remove' />
+  <upgrade include='install' />
 
-  <remove cmd='msiexec %MSI% /x "{CA4DE7D2-24ED-4C0A-BBE7-B9FA80B518E1}"' />
+  <downgrade include='upgrade' />
+
+  <remove cmd='"%PKG_DESTINATION%\Uninstall.exe" /S' />
 
 </package>
 
