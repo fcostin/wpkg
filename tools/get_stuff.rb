@@ -526,7 +526,8 @@ def download(package_def)
     else
       puts "NOTICE: Directory #{d} exists"
     end
-    system "axel '#{url}' -a -o '#{fullpath}'"
+    # system "axel '#{url}' -a -o '#{fullpath}'"
+    system "wget '#{url}' --continue -O '#{fullpath}'"
     puts "NOTICE: #{p[:notice] unless p[:notice].nil?}"
   end
 end
