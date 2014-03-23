@@ -1,0 +1,12 @@
+<!DOCTYPE msi [
+  <!ENTITY id "sensu">
+  <!ENTITY name "Sensu Monitoring Client">
+  <!ENTITY version "1.0.0">
+  <!ENTITY cmdline "">
+  <!ENTITY msi_32bit "sensu\sensu.msi">
+  <!ENTITY msi_64bit "sensu\sensu.msi">
+  <!ENTITY uninstall_32bit "sensu">
+  <!ENTITY uninstall_64bit "sensu">
+  <!ENTITY pkg SYSTEM "../templates/msi.xml">
+]>
+<packages>&pkg;</packages>
