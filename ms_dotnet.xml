@@ -99,7 +99,7 @@
 <package
   id="dotnet4"
   name="Microsoft .NET 4.5"
-  revision="15"
+  revision="16"
   reboot="false"
   priority="50">
 
@@ -126,8 +126,12 @@
   </install>
   <install cmd='"%PKG_TARGET%\SetupUtility" /auresume'><exit code='any' /></install>
 
+  <!--
+       up- and downgrade are not working correctly - we check the uninstall entry anyway
+       so we just disable these
   <upgrade   include='install' />
   <downgrade include='install' />
+  -->
 
   <remove cmd='"%PKG_DESTINATION%\SetupCache\setup.exe" /uninstall /x86 /x64 /ia64 /q' />
 
