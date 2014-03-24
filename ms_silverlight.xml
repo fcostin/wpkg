@@ -5,19 +5,19 @@
 <package
   id="silverlight"
   name="Microsoft Silverlight"
-  revision="%version%"
+  revision="%version%-1"
   reboot="false">
 
-  <variable name="version" value="5.1.10411.0" />
+  <variable name="version" value="5.1.30214.0" />
+  <variable name="flags" value="/q /noupdate /ignorewarnings" />
+  <variable name="PKG_SOURCE" value="%SOFTWARE%\Microsoft\Silverlight\%version%\Silverlight_x86.exe" architecture='x86' />
+  <variable name="PKG_SOURCE" value="%SOFTWARE%\Microsoft\Silverlight\%version%\Silverlight_x64.exe" architecture='x64' />
 
-  <check type="uninstall" condition="versiongreaterorequal" path="Microsoft Silverlight" value="%version%" />
+  <check type="uninstall" condition="versiongreaterorequal" path="Microsoft Silverlight %version%" value="%version%" />
 
-  <install cmd='"%SOFTWARE%\Microsoft\Silverlight\Silverlight-%version%.exe" /q /noupdate' architecture='x86' />
-  <install cmd='"%SOFTWARE%\Microsoft\Silverlight\Silverlight-%version%.exe" /q /noupdate' architecture='x64' />
-
+  <install cmd='"%PKG_SOURCE%" %flags%' />
   <upgrade include="install" />
-
-  <remove cmd='msiexec /qn /x{89F4137D-6C26-4A84-BDB8-2E5A4BB71E00}' />
+  <remove  cmd='"%PKG_SOURCE%" /qn' />
 
 </package>
 
