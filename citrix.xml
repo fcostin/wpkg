@@ -66,7 +66,7 @@
 <package
   id="citrix_full"
   name="Citrix Full Online Client"
-  revision="%version%-0"
+  revision="%version%-2"
   reboot="false"
   priority="10">
 
@@ -77,7 +77,7 @@
   <install   cmd='"%SOFTWARE%\Citrix\CitrixOnlinePluginFull.exe" /silent /norestart ADDLOCAL="ICA_Client,PN_Agent,SSON" ENABLE_SSON="Yes"' />
   <upgrade   include='install' />
   <downgrade include='install' />
-  <remove    cmd='"%ALLUSERSPROFILE%\Application Data\Citrix\Citrix online plug-in\TrolleyExpress.exe" /uninstall /cleanup' />
+  <remove    cmd='"%PROGRAMDATA%\Application Data\Citrix\Citrix online plug-in\TrolleyExpress.exe" /uninstall /cleanup' timeout='120' />
 
 </package>
 
