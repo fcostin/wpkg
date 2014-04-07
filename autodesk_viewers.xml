@@ -17,7 +17,7 @@
 <package
   id="autodesk_dwgtrueview"
   name="Autodesk DWG TrueView"
-  revision="%version%-6"
+  revision="%version%-7"
   reboot="false"
   priority="10">
 
@@ -38,21 +38,21 @@
   <install cmd='%COMSPEC% /C MKDIR "%TEMP_DIR%"'>
     <exit code="1" />
   </install>
-  <install cmd='%COMSPEC% /C "start "Unpacking" /wait "%PROGRAMFILES%\7-Zip\7z.exe" x -y -o"%TEMP_DIR%\" "%PKG_SOURCE%" >%TEMP%\wpkg_unpack_dwg%version%.log"' />
-  <install cmd='"%TEMP_DIR%\setup.exe" /w /q /t "%TEMP_DIR%\setup.ini"'><exit code='3010' /></install>
+  <install cmd='%COMSPEC% /C "start "Unpacking" /wait "%PROGRAMFILES%\7-Zip\7z.exe" x -y -o"%TEMP_DIR%\" "%PKG_SOURCE%" >%TEMP%\wpkg_unpack_dwg%version%.log"' timeout='120' />
+  <install cmd='"%TEMP_DIR%\setup.exe" /w /q /t "%TEMP_DIR%\setup.ini"' timeout='300'><exit code='3010' /></install>
   <install cmd='%COMSPEC% /c del /Q "%DESKTOP%\DWG TrueView*.lnk"'><exit code="any" /></install>
 
   <upgrade   include='install' />
   <downgrade include='install' />
 
-  <remove cmd='%PROGRAMFILES%\Autodesk\DWG TrueView %version%\Setup\Setup.exe /q /P {5783F2D7-B028-0409-0000-0060B0CE6BBA} /M AOEM /language en-US'><exit code='3010' /></remove>
+  <remove cmd='%PROGRAMFILES%\Autodesk\DWG TrueView %version%\Setup\Setup.exe /q /P {5783F2D7-B028-0409-0000-0060B0CE6BBA} /M AOEM /language en-US' timeout='300'><exit code='3010' /></remove>
 
 </package>
 
 <package
   id="autodesk_designreview"
   name="Autodesk Design Review"
-  revision="%version%-1"
+  revision="%version%-2"
   reboot="false"
   priority="10">
 
@@ -68,13 +68,13 @@
 
   <check type="uninstall" condition="exists" path="Autodesk Design Review %version%" />
 
-  <install cmd='msiexec /i "%PKG_SOURCE%" %MSI%'><exit code='3010' /></install>
+  <install cmd='msiexec /i "%PKG_SOURCE%" %MSI%' timeout='300'><exit code='3010' /></install>
   <install cmd='%COMSPEC% /c del /Q "%DESKTOP%\Autodesk Design Review %version%.lnk"'><exit code="any" /></install>
 
   <upgrade   include='install' />
   <downgrade include='install' />
 
-  <remove cmd='msiexec /x "%PKG_SOURCE%" %MSI%'><exit code='3010' /></remove>
+  <remove cmd='msiexec /x "%PKG_SOURCE%" %MSI%' timeout='300'><exit code='3010' /></remove>
 
 </package>
 
