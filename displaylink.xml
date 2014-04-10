@@ -13,19 +13,21 @@
 <package
   id="displaylink"
   name="DisplayLink Drivers"
-  revision="1"
+  revision="%version%-0"
   reboot="false">
 
-  <variable name='VERSION' value='6.0.33743.0' />
+  <variable name='VERSION' value='7.5' />
+  <variable name='PKG_SOURCE' value="%SOFTWARE%\DisplayLink\%VERSION%\Win32\Setup.msi" architecture='x86' />
+  <variable name='PKG_SOURCE' value="%SOFTWARE%\DisplayLink\%VERSION%\Win64\Setup.msi" architecture='x64' />
 
-  <check type='uninstall' condition='versiongreaterorequal' path='DisplayLink Core Software' value='%VERSION%' />
+  <check type='uninstall' condition='versiongreaterorequal' path='DisplayLink Core Software' value='%VERSION%.0.0' />
 
-  <install cmd='msiexec %MSI% /i "%SOFTWARE%\DisplayLink\%PROCESSOR_ARCHITECTURE%\Setup.msi"'><exit code='3010' /></install>
+  <install cmd='msiexec %MSI% /i "%PKG_SOURCE%"' timeout='300'><exit code='3010' /></install>
 
   <upgrade   include='install' />
   <downgrade include='install' />
 
-  <remove cmd='msiexec %MSI% /x "%SOFTWARE%\DisplayLink\%PROCESSOR_ARCHITECTURE%\Setup.msi"' />
+  <remove cmd='msiexec %MSI% /x "%PKG_SOURCE%"' timeout='300' />
 
 </package>
 
