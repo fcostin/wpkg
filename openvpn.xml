@@ -13,7 +13,7 @@
 <package
   id="openvpn"
   name="OpenVPN Client"
-  revision="%version%-13"
+  revision="%version%-14"
   reboot="false"
   priority="1"> <!-- run it late to enable updates via VPN -->
 
@@ -30,18 +30,13 @@
 
   <install include='kill' />
   <install cmd='%COMSPEC% /c mkdir "%CACHE_DIR%"'><exit code='any' /></install>
+
   <!-- we need -f to update an older, expired certificate -->
   <install cmd='%COMSPEC% /C certutil -f -addstore "TrustedPublisher" "%CERTIFICATE%" >NUL' timeout='120' />
+
   <install cmd='"%PKG_SOURCE%" /S >NUL' timeout='120'><exit code="3010" /></install>
   <install cmd='%COMSPEC% /c xcopy /Y "%PKG_SOURCE%" "%CACHE_DIR%" >NUL' timeout='30'><exit code="any" /></install>
-  <!-- we need to run once as admin to create the registry entries -->
-  <install cmd='%PKG_DESTINATION%\bin\openvpn-gui.exe' timeout='10'><exit code='any' /></install>
-  <install cmd='%COMSPEC% /c copy "%PKG_SOURCE_DIR%\*.cmd" "%CACHE_DIR%" >NUL' timeout='30' />
-  <install cmd='%WPKG%\tools\nircmdc.exe shortcut "%windir%\system32\schtasks.exe" "%ALLUSERSPROFILE%\Desktop" "OpenVPN" "/RUN /TN \"^%USERDOMAIN^%_^%USERNAME^%_openvpn\"" "%PKG_DESTINATION%\icon.ico"' />
   <install cmd='%COMSPEC% /c echo Y | cacls "%PKG_DESTINATION%\config" /E /T /G Everyone:f >NUL'><exit code="8023" /></install>
-  <!--
-  <install cmd='C:\ProgramData\OpenVPN\create_main_task_only_runonce.cmd' />
-  -->
 
   <upgrade   include='install' />
   <downgrade include='install' />
