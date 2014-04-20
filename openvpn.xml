@@ -36,11 +36,9 @@
   <install cmd='%COMSPEC% /c xcopy /Y "%PKG_SOURCE%" "%CACHE_DIR%" >NUL' timeout='30'><exit code="any" /></install>
   <!-- we need to run once as admin to create the registry entries -->
   <install cmd='%PKG_DESTINATION%\bin\openvpn-gui.exe' timeout='10'><exit code='any' /></install>
-  <install cmd='reg ADD "HKLM\SOFTWARE\OpenVPN-GUI" /t REG_SZ /v log_dir /d %%TEMP%%\OpenVPN\log /f' />
-  <install cmd='reg ADD "HKLM\SOFTWARE\OpenVPN-GUI" /t REG_SZ /v editor /d "^%WINDIR^%\system32\ipconfig.exe" /f' />
-  <install cmd='reg ADD "HKLM\SOFTWARE\OpenVPN-GUI" /t REG_SZ /v log_viewer /d "^%WINDIR^%\system32\ipconfig.exe" /f' />
   <install cmd='%COMSPEC% /c copy "%PKG_SOURCE_DIR%\*.cmd" "%CACHE_DIR%" >NUL' timeout='30' />
   <install cmd='%WPKG%\tools\nircmdc.exe shortcut "%windir%\system32\schtasks.exe" "%ALLUSERSPROFILE%\Desktop" "OpenVPN" "/RUN /TN \"^%USERDOMAIN^%_^%USERNAME^%_openvpn\"" "%PKG_DESTINATION%\icon.ico"' />
+  <install cmd='%COMSPEC% /c echo Y | cacls "%PKG_DESTINATION%\config" /E /T /G Everyone:f >NUL'><exit code="8023" /></install>
   <!--
   <install cmd='C:\ProgramData\OpenVPN\create_main_task_only_runonce.cmd' />
   -->

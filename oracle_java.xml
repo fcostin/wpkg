@@ -87,7 +87,7 @@
   priority="10">
 
   <!-- if we go beyond 60 (or 80 or 100) we need to break up the commands that uninstalls old versions -->
-  <variable name="last" value="51" />        <!-- last part of the version - used for looping through installed versions -->
+  <variable name="last" value="55" />        <!-- last part of the version - used for looping through installed versions -->
   <variable name="short" value="7u%last%" /> <!-- part of the installer file name -->
   <variable name="version" value="1.7.0_%last%" />
   <variable name='flags' value='ADDLOCAL=ALL IEXPLORER=1 MOZILLA=1 REBOOT=Suppress' />
@@ -146,7 +146,7 @@
       if we go beyond 60 (or 80 or 100) we MAY need to break up the commands
       that uninstalls old versions, like java 7
   -->
-  <variable name="last" value="0" />         <!-- last part of the version - used for looping through installed versions -->
+  <variable name="last" value="5" />         <!-- last part of the version - used for looping through installed versions -->
   <variable name="main" value="8" />         <!-- last part of the version - used for looping through installed versions -->
   <variable name="short" value="%main%u%last%" /> <!-- part of the installer file name -->
   <variable name="version" value="1.%main%.0_%last%" />
