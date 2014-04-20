@@ -146,8 +146,8 @@
       if we go beyond 60 (or 80 or 100) we MAY need to break up the commands
       that uninstalls old versions, like java 7
   -->
-  <variable name="last" value="5" />         <!-- last part of the version - used for looping through installed versions -->
-  <variable name="main" value="8" />         <!-- last part of the version - used for looping through installed versions -->
+  <variable name="last"  value="5" />             <!-- last part of the version - used for looping through installed versions -->
+  <variable name="main"  value="8" />             <!-- main part of the version - used for looping through installed versions -->
   <variable name="short" value="%main%u%last%" /> <!-- part of the installer file name -->
   <variable name="version" value="1.%main%.0_%last%" />
   <variable name='flags' value='JU=0 JAVAUPDATE=0 AUTOUPDATECHECK=0 RebootYesNo=No WEB_JAVA=1' />
