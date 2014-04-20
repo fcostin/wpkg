@@ -12,7 +12,7 @@
 <package
   id="flash"
   name="Adobe Flash Player"
-  revision="%version%-0"
+  revision="%version%-1"
   reboot="false"
   priority="10">
 
@@ -31,8 +31,8 @@
   <install cmd='%COMSPEC% /c IF NOT EXIST "%CFG_DESTINATION_32%" mkdir "%CFG_DESTINATION_32%"' />
   <install cmd='%COMSPEC% /c IF EXIST "%SOFTWARE%\Adobe\Flash\mms.cfg" copy /y /v "%SOFTWARE%\Adobe\Flash\mms.cfg" "%CFG_DESTINATION_32%"' />
   <install cmd='%COMSPEC% /c IF EXIST "%SOFTWARE%\Adobe\Flash\mms.cfg" copy /y /v "%SOFTWARE%\Adobe\Flash\mms.cfg" "%CFG_DESTINATION_64%"' architecture='x64' />
-  <install cmd='msiexec %MSI% /i "%SOFTWARE%\Adobe\Flash\%shortversion%\install_flash_player_%mainversion%_active_x.msi"' />
-  <install cmd='msiexec %MSI% /i "%SOFTWARE%\Adobe\Flash\%shortversion%\install_flash_player_%mainversion%_plugin.msi"' />
+  <install cmd='msiexec %MSI% /i "%SOFTWARE%\Adobe\Flash\%shortversion%\install_flash_player_%mainversion%_active_x.msi"' timeout='120' />
+  <install cmd='msiexec %MSI% /i "%SOFTWARE%\Adobe\Flash\%shortversion%\install_flash_player_%mainversion%_plugin.msi"' timeout='120' />
   <install cmd='sc config AdobeFlashPlayerUpdateSvc start= disabled' />
   <install cmd='schtasks /delete /tn "Adobe Flash Player Updater" /f'><exit code='any' /></install>
 
