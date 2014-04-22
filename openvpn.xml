@@ -13,11 +13,11 @@
 <package
   id="openvpn"
   name="OpenVPN Client"
-  revision="%version%-14"
+  revision="%version%-1"
   reboot="false"
   priority="1"> <!-- run it late to enable updates via VPN -->
 
-  <variable name="version" value="2.3.2-I003" />
+  <variable name="version" value="2.3.3-I002" />
 
   <variable name="PKG_SOURCE_DIR"  value="%SOFTWARE%\OpenVPN" />
   <variable name="PKG_SOURCE"      value="%PKG_SOURCE_DIR%\openvpn-install-%version%-i686.exe"   architecture="x86" />
