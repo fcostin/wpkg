@@ -1,7 +1,7 @@
 <!DOCTYPE msi [
   <!ENTITY id "libreoffice">
   <!ENTITY name "LibreOffice">
-  <!ENTITY version "4.2.0">
+  <!ENTITY version "4.2.3">
   <!ENTITY cmdline "">
   <!ENTITY msi_32bit "LibreOffice\LibreOffice_&version;_Win_x86.msi">
   <!ENTITY msi_64bit "LibreOffice\LibreOffice_&version;_Win_x86.msi">
