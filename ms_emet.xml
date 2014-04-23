@@ -9,7 +9,7 @@
   reboot="false"
   priority="10">
 
-  <variable name="version" value="4.0" />
+  <variable name="version" value="4.1" />
   <variable name="PKG_SOURCE_DIR"  value="%SOFTWARE%\Microsoft\EMET" />
   <variable name="PKG_DESTINATION" value="%PROGRAMFILES%\EMET %version%"      architecture="x86" />
   <variable name="PKG_DESTINATION" value="%PROGRAMFILES(x86)%\EMET %version%" architecture="x64" />
