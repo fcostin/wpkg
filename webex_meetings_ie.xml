@@ -1,0 +1,12 @@
+<!DOCTYPE msi [
+  <!ENTITY id "webex_meetings_ie">
+  <!ENTITY name "WebEx Meetings for IE">
+  <!ENTITY version "29.5.0.16">
+  <!ENTITY cmdline "">
+  <!ENTITY msi_32bit "WebEx\&version;\atmcw11ie.msi">
+  <!ENTITY msi_64bit "WebEx\&version;\atmcw11ie.msi">
+  <!ENTITY uninstall_32bit "Cisco WebEx Meetings for Internet Explorer">
+  <!ENTITY uninstall_64bit "Cisco WebEx Meetings for Internet Explorer">
+  <!ENTITY pkg SYSTEM "../templates/msi.xml">
+]>
+<packages>&pkg;</packages>
