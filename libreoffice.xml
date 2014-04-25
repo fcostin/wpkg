@@ -2,7 +2,7 @@
   <!ENTITY id "libreoffice">
   <!ENTITY name "LibreOffice">
   <!ENTITY version "4.2.3">
-  <!ENTITY cmdline "">
+  <!ENTITY cmdline "CREATEDESKTOPLINK=0 ISCHECKFORPRODUCTUPDATES=0">
   <!ENTITY msi_32bit "LibreOffice\LibreOffice_&version;_Win_x86.msi">
   <!ENTITY msi_64bit "LibreOffice\LibreOffice_&version;_Win_x86.msi">
   <!ENTITY uninstall_32bit "LibreOffice.*">
