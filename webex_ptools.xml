@@ -2,7 +2,7 @@
   <!ENTITY id "webex_ptools">
   <!ENTITY name "WebEx Productivity Tools">
   <!ENTITY version "11.1.30500">
-  <!ENTITY cmdline "">
+  <!ENTITY cmdline "ALLUSERS=1 OI=1">
   <!ENTITY msi_32bit "WebEx\&version;\ptools.msi">
   <!ENTITY msi_64bit "WebEx\&version;\ptools.msi">
   <!ENTITY uninstall_32bit "Cisco WebEx Productivity Tools">
