@@ -201,6 +201,17 @@ pdn: [
   unzip: true},
 ],
 
+# Not available until we can parse peazip.xml correctly
+
+# peazip: [
+#   {url: 'http://downloads.sourceforge.net/peazip/peazip-%version%.WINDOWS.msi',
+#   destination: ['PeaZip', 'peazip-%version%.WINDOWS.msi'],
+#   package_id: 'peazip'},
+#   {url: 'http://downloads.sourceforge.net/peazip/peazip-%version%.WIN64.msi',
+#   destination: ['PeaZip', 'peazip-%version%.WIN64.msi'],
+#   package_id: 'peazip'},
+# ],
+
 puretext: [
   {url: 'http://www.stevemiller.net/downloads/puretext_%version%_32-bit.zip',
   destination: ['PureText', 'puretext_%version%_32-bit.zip'],

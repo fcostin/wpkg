@@ -1,0 +1,12 @@
+<!DOCTYPE msi [
+  <!ENTITY id "peazip">
+  <!ENTITY name "PeaZip">
+  <!ENTITY version "5.3.0">
+  <!ENTITY cmdline "">
+  <!ENTITY msi_32bit "PeaZip\LogMeIn.msi">
+  <!ENTITY msi_64bit "PeaZip\LogMeIn.msi">
+  <!ENTITY uninstall_32bit "PeaZip">
+  <!ENTITY uninstall_64bit "PeaZip">
+  <!ENTITY pkg SYSTEM "../templates/msi.xml">
+]>
+<packages>&pkg;</packages>
